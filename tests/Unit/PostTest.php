@@ -15,38 +15,38 @@ class PostTest extends TestCase
      *
      * @return void
      */
-    // public function test_bisa_bikin_post(){
-    //     $data = [
-    //         'title' => $this->faker->sentence,
-    //         'content' => $this->faker->paragraph,
-    //     ];
-    //     $this->post(route('posts.store'), $data)
-    //         ->assertStatus(201)
-    //         ->assertJson($data);
-    // }
+    public function test_bisa_bikin_post(){
+        $data = [
+            'title' => $this->faker->sentence,
+            'content' => $this->faker->paragraph,
+        ];
+        $this->post(route('posts.store'), $data)
+            ->assertStatus(201)
+            ->assertJson($data);
+    }
 
-    // public function test_bisa_update_post(){
-    //     $post = factory(Post::class)->create();
-    //     $data = [
-    //         'title' => $this->faker->sentence,
-    //         'content' => $this->faker->paragraph
-    //     ];
-    //     $this->put(route('posts.update', $post->id), $data)
-    //         ->assertStatus(200)
-    //         ->assertJson($data);
-    // }
+    public function test_bisa_update_post(){
+        $post = factory(Post::class)->create();
+        $data = [
+            'title' => $this->faker->sentence,
+            'content' => $this->faker->paragraph
+        ];
+        $this->put(route('posts.update', $post->id), $data)
+            ->assertStatus(200)
+            ->assertJson($data);
+    }
     
-    // public function test_bisa_show_post(){
-    //     $post = factory(Post::class)->create();
-    //     $this->get(route('posts.show', $post->id))
-    //         ->assertStatus(200);
-    // }
+    public function test_bisa_show_post(){
+        $post = factory(Post::class)->create();
+        $this->get(route('posts.show', $post->id))
+            ->assertStatus(200);
+    }
     
-    // public function test_bisa_delete_post(){
-    //     $post = factory(Post::class)->create();
-    //     $this->delete(route('posts.delete', $post->id))
-    //         ->assertStatus(204);
-    // }
+    public function test_bisa_delete_post(){
+        $post = factory(Post::class)->create();
+        $this->delete(route('posts.delete', $post->id))
+            ->assertStatus(204);
+    }
     
     public function test_bisa_tampilkan_list_posts(){
         $posts = factory(Post::class, 2)->create()->map(function ($post) {
